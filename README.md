@@ -21,6 +21,7 @@ The determ.cpp will output a deterministic automata on a file named qwer.csv on 
 
 Compile and execute:
 g++ determ.cpp -o determ
+
 ./determ < code.txt
 
 The lexical_analysis.cpp receives a code as input, during it's execution the lexical_analysis.cpp loads the automata 
@@ -29,6 +30,7 @@ and the line where the token was found.
 
 Compile and execute:
 g++ lexycal_analysis.cpp -o lexycal_analysis
+
 ./lexycal_analysis < code.txt > tokens.txt
 
 Syntax:
