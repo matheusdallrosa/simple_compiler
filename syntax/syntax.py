@@ -29,7 +29,7 @@ def read_grammar():
 automata = {}
 def read_LALR():
     print("Lendo tabela LALR...")
-    with open("LALRstates.txt") as LALR:
+    with open("gold_parser_LALR_output.txt") as LALR:
         stt = ""
         for line in LALR:
             line = line.strip()
