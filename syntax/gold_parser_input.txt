@@ -1,0 +1,19 @@
+<E> ::= <E> '+' <T> | <E> '-' <T> | <T>
+<T> ::= <T> '*' <F> | <T> '/' <F> | <T> '%' <F> | <F>
+<F> ::= '(' <E> ')' | <V> | '-' <V>
+<V> ::= 'variavel' | <valor_constante>
+<valor_constante> ::= creal | cint | cstring
+<atr> ::= '=' <E>
+<vardec> ::= 'variavel' <atr> ',' <vardec> | 'variavel' ',' <vardec> | 'variavel' | 'variavel' <atr>
+<dec> ::= 'int' <vardec> ';' | 'double' <vardec> ';' | 'char' <vardec> ';'
+<L> ::= <L> '||' <TL> | <TL>
+<TL> ::= <TL> '&&' <FN> | <FN>      
+<FN> ::= '!' <FL> | <FL>
+<FL> ::= '(' <L> ')' | <R>
+<R> ::= <E> <RD>
+<RD> ::= '<' <E> | '<' '=' <E> | '=' '=' <E> | '!' '=' <E> | '>' '=' <E> | '>' <E>
+<D> ::= 'else' '{' <S> '}' <S> | 'elseif' '(' <L> ')' '{' <S> '}' <D> | <S>
+<enq> ::= 'while' '(' <L> ')'   
+<S> ::= <dec> <S> | <se> '{' <S> '}' <D> | <enq> '{' <S> '}' <S> | 'variavel' <atr> ';' <S> | 
+<ini> ::= <S> '$'
+<se> ::= 'if' '(' <L> ')'

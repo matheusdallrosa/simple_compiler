@@ -1,0 +1,25 @@
+int variavel = cint + variavel, variavel;
+char variavel= cstring;
+double variavel = creal;
+if (variavel >= creal && (variavel != variavel || !(variavel == variavel))){
+    variavel = variavel + (cint * variavel) + variavel - variavel;
+    while(variavel >= variavel){
+        variavel = variavel + cint;
+    }
+}
+elseif(variavel == cint){
+    if((cint+variavel != (cint)) && !variavel == cint){
+    variavel = cint + variavel;
+        while(!(variavel == cint)){
+            variavel = cint + variavel;
+        }
+    }
+    variavel = cint + variavel ;
+}
+else{
+ variavel=(variavel + (variavel % variavel));
+}
+
+while(variavel >= variavel){
+variavel = cstring;
+}$

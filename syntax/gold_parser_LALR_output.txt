@@ -1,0 +1,1847 @@
+State 0
+        <S'> ::= _ <ini> (EOF)
+        <dec> ::= _ int <vardec> ';'
+        <dec> ::= _ double <vardec> ';'
+        <dec> ::= _ char <vardec> ';'
+        <enq> ::= _ while '(' <L> ')'
+        <S> ::= _ <dec> <S>
+        <S> ::= _ <se> '{' <S> '}' <D>
+        <S> ::= _ <enq> '{' <S> '}' <S>
+        <S> ::= _ variavel <atr> ';' <S>
+        <S> ::= _
+        <ini> ::= _ <S> '$'
+        <se> ::= _ if '(' <L> ')'
+
+        char s 1
+        double s 2
+        if s 3
+        int s 4
+        variavel s 5
+        while s 6
+        <dec> g 7
+        <enq> g 8
+        <ini> g 9
+        <S> g 10
+        <se> g 11
+        '$' r 46
+
+
+State 1
+        <dec> ::= char _ <vardec> ';'
+        <vardec> ::= _ variavel <atr> ',' <vardec>
+        <vardec> ::= _ variavel ',' <vardec>
+        <vardec> ::= _ variavel
+        <vardec> ::= _ variavel <atr>
+
+        variavel s 12
+        <vardec> g 13
+
+
+State 2
+        <dec> ::= double _ <vardec> ';'
+        <vardec> ::= _ variavel <atr> ',' <vardec>
+        <vardec> ::= _ variavel ',' <vardec>
+        <vardec> ::= _ variavel
+        <vardec> ::= _ variavel <atr>
+
+        variavel s 12
+        <vardec> g 14
+
+
+State 3
+        <se> ::= if _ '(' <L> ')'
+
+        '(' s 15
+
+
+State 4
+        <dec> ::= int _ <vardec> ';'
+        <vardec> ::= _ variavel <atr> ',' <vardec>
+        <vardec> ::= _ variavel ',' <vardec>
+        <vardec> ::= _ variavel
+        <vardec> ::= _ variavel <atr>
+
+        variavel s 12
+        <vardec> g 16
+
+
+State 5
+        <S> ::= variavel _ <atr> ';' <S>
+        <atr> ::= _ '=' <E>
+
+        '=' s 17
+        <atr> g 18
+
+
+State 6
+        <enq> ::= while _ '(' <L> ')'
+
+        '(' s 19
+
+
+State 7
+        <S> ::= <dec> _ <S>
+        <dec> ::= _ int <vardec> ';'
+        <dec> ::= _ double <vardec> ';'
+        <dec> ::= _ char <vardec> ';'
+        <enq> ::= _ while '(' <L> ')'
+        <S> ::= _ <dec> <S>
+        <S> ::= _ <se> '{' <S> '}' <D>
+        <S> ::= _ <enq> '{' <S> '}' <S>
+        <S> ::= _ variavel <atr> ';' <S>
+        <S> ::= _
+        <se> ::= _ if '(' <L> ')'
+
+        char s 1
+        double s 2
+        if s 3
+        int s 4
+        variavel s 5
+        while s 6
+        <dec> g 7
+        <enq> g 8
+        <S> g 20
+        <se> g 11
+        '$' r 46
+        '}' r 46
+
+
+State 8
+        <S> ::= <enq> _ '{' <S> '}' <S>
+
+        '{' s 21
+
+
+State 9
+        <S'> ::= <ini> _ (EOF)
+
+        (EOF) a
+
+
+State 10
+        <ini> ::= <S> _ '$'
+
+        '$' s 22
+
+
+State 11
+        <S> ::= <se> _ '{' <S> '}' <D>
+
+        '{' s 23
+
+
+State 12
+        <vardec> ::= variavel _ <atr> ',' <vardec>
+        <vardec> ::= variavel _ ',' <vardec>
+        <vardec> ::= variavel _
+        <vardec> ::= variavel _ <atr>
+        <atr> ::= _ '=' <E>
+
+        ',' s 24
+        '=' s 17
+        <atr> g 25
+        ';' r 18
+
+
+State 13
+        <dec> ::= char <vardec> _ ';'
+
+        ';' s 26
+
+
+State 14
+        <dec> ::= double <vardec> _ ';'
+
+        ';' s 27
+
+
+State 15
+        <se> ::= if '(' _ <L> ')'
+        <E> ::= _ <E> '+' <T>
+        <E> ::= _ <E> '-' <T>
+        <E> ::= _ <T>
+        <T> ::= _ <T> '*' <F>
+        <T> ::= _ <T> '/' <F>
+        <T> ::= _ <T> '%' <F>
+        <T> ::= _ <F>
+        <F> ::= _ '(' <E> ')'
+        <F> ::= _ <V>
+        <F> ::= _ '-' <V>
+        <V> ::= _ variavel
+        <V> ::= _ <valor_constante>
+        <valor_constante> ::= _ creal
+        <valor_constante> ::= _ cint
+        <valor_constante> ::= _ cstring
+        <L> ::= _ <L> '||' <TL>
+        <L> ::= _ <TL>
+        <TL> ::= _ <TL> '&&' <FN>
+        <TL> ::= _ <FN>
+        <FN> ::= _ '!' <FL>
+        <FN> ::= _ <FL>
+        <FL> ::= _ '(' <L> ')'
+        <FL> ::= _ <R>
+        <R> ::= _ <E> <RD>
+
+        '-' s 28
+        '!' s 29
+        '(' s 30
+        cint s 31
+        creal s 32
+        cstring s 33
+        variavel s 34
+        <E> g 35
+        <F> g 36
+        <FL> g 37
+        <FN> g 38
+        <L> g 39
+        <R> g 40
+        <T> g 41
+        <TL> g 42
+        <V> g 43
+        <valor_constante> g 44
+
+
+State 16
+        <dec> ::= int <vardec> _ ';'
+
+        ';' s 45
+
+
+State 17
+        <atr> ::= '=' _ <E>
+        <E> ::= _ <E> '+' <T>
+        <E> ::= _ <E> '-' <T>
+        <E> ::= _ <T>
+        <T> ::= _ <T> '*' <F>
+        <T> ::= _ <T> '/' <F>
+        <T> ::= _ <T> '%' <F>
+        <T> ::= _ <F>
+        <F> ::= _ '(' <E> ')'
+        <F> ::= _ <V>
+        <F> ::= _ '-' <V>
+        <V> ::= _ variavel
+        <V> ::= _ <valor_constante>
+        <valor_constante> ::= _ creal
+        <valor_constante> ::= _ cint
+        <valor_constante> ::= _ cstring
+
+        '-' s 28
+        '(' s 46
+        cint s 31
+        creal s 32
+        cstring s 33
+        variavel s 34
+        <E> g 47
+        <F> g 36
+        <T> g 41
+        <V> g 43
+        <valor_constante> g 44
+
+
+State 18
+        <S> ::= variavel <atr> _ ';' <S>
+
+        ';' s 48
+
+
+State 19
+        <enq> ::= while '(' _ <L> ')'
+        <E> ::= _ <E> '+' <T>
+        <E> ::= _ <E> '-' <T>
+        <E> ::= _ <T>
+        <T> ::= _ <T> '*' <F>
+        <T> ::= _ <T> '/' <F>
+        <T> ::= _ <T> '%' <F>
+        <T> ::= _ <F>
+        <F> ::= _ '(' <E> ')'
+        <F> ::= _ <V>
+        <F> ::= _ '-' <V>
+        <V> ::= _ variavel
+        <V> ::= _ <valor_constante>
+        <valor_constante> ::= _ creal
+        <valor_constante> ::= _ cint
+        <valor_constante> ::= _ cstring
+        <L> ::= _ <L> '||' <TL>
+        <L> ::= _ <TL>
+        <TL> ::= _ <TL> '&&' <FN>
+        <TL> ::= _ <FN>
+        <FN> ::= _ '!' <FL>
+        <FN> ::= _ <FL>
+        <FL> ::= _ '(' <L> ')'
+        <FL> ::= _ <R>
+        <R> ::= _ <E> <RD>
+
+        '-' s 28
+        '!' s 29
+        '(' s 30
+        cint s 31
+        creal s 32
+        cstring s 33
+        variavel s 34
+        <E> g 35
+        <F> g 36
+        <FL> g 37
+        <FN> g 38
+        <L> g 49
+        <R> g 40
+        <T> g 41
+        <TL> g 42
+        <V> g 43
+        <valor_constante> g 44
+
+
+State 20
+        <S> ::= <dec> <S> _
+
+        '$' r 42
+        '}' r 42
+
+
+State 21
+        <S> ::= <enq> '{' _ <S> '}' <S>
+        <dec> ::= _ int <vardec> ';'
+        <dec> ::= _ double <vardec> ';'
+        <dec> ::= _ char <vardec> ';'
+        <enq> ::= _ while '(' <L> ')'
+        <S> ::= _ <dec> <S>
+        <S> ::= _ <se> '{' <S> '}' <D>
+        <S> ::= _ <enq> '{' <S> '}' <S>
+        <S> ::= _ variavel <atr> ';' <S>
+        <S> ::= _
+        <se> ::= _ if '(' <L> ')'
+
+        char s 1
+        double s 2
+        if s 3
+        int s 4
+        variavel s 5
+        while s 6
+        <dec> g 7
+        <enq> g 8
+        <S> g 50
+        <se> g 11
+        '}' r 46
+
+
+State 22
+        <ini> ::= <S> '$' _
+
+        (EOF) r 47
+
+
+State 23
+        <S> ::= <se> '{' _ <S> '}' <D>
+        <dec> ::= _ int <vardec> ';'
+        <dec> ::= _ double <vardec> ';'
+        <dec> ::= _ char <vardec> ';'
+        <enq> ::= _ while '(' <L> ')'
+        <S> ::= _ <dec> <S>
+        <S> ::= _ <se> '{' <S> '}' <D>
+        <S> ::= _ <enq> '{' <S> '}' <S>
+        <S> ::= _ variavel <atr> ';' <S>
+        <S> ::= _
+        <se> ::= _ if '(' <L> ')'
+
+        char s 1
+        double s 2
+        if s 3
+        int s 4
+        variavel s 5
+        while s 6
+        <dec> g 7
+        <enq> g 8
+        <S> g 51
+        <se> g 11
+        '}' r 46
+
+
+State 24
+        <vardec> ::= variavel ',' _ <vardec>
+        <vardec> ::= _ variavel <atr> ',' <vardec>
+        <vardec> ::= _ variavel ',' <vardec>
+        <vardec> ::= _ variavel
+        <vardec> ::= _ variavel <atr>
+
+        variavel s 12
+        <vardec> g 52
+
+
+State 25
+        <vardec> ::= variavel <atr> _ ',' <vardec>
+        <vardec> ::= variavel <atr> _
+
+        ',' s 53
+        ';' r 19
+
+
+State 26
+        <dec> ::= char <vardec> ';' _
+
+        '$' r 22
+        '}' r 22
+        char r 22
+        double r 22
+        if r 22
+        int r 22
+        variavel r 22
+        while r 22
+
+
+State 27
+        <dec> ::= double <vardec> ';' _
+
+        '$' r 21
+        '}' r 21
+        char r 21
+        double r 21
+        if r 21
+        int r 21
+        variavel r 21
+        while r 21
+
+
+State 28
+        <F> ::= '-' _ <V>
+        <V> ::= _ variavel
+        <V> ::= _ <valor_constante>
+        <valor_constante> ::= _ creal
+        <valor_constante> ::= _ cint
+        <valor_constante> ::= _ cstring
+
+        cint s 31
+        creal s 32
+        cstring s 33
+        variavel s 34
+        <V> g 54
+        <valor_constante> g 44
+
+
+State 29
+        <FN> ::= '!' _ <FL>
+        <E> ::= _ <E> '+' <T>
+        <E> ::= _ <E> '-' <T>
+        <E> ::= _ <T>
+        <T> ::= _ <T> '*' <F>
+        <T> ::= _ <T> '/' <F>
+        <T> ::= _ <T> '%' <F>
+        <T> ::= _ <F>
+        <F> ::= _ '(' <E> ')'
+        <F> ::= _ <V>
+        <F> ::= _ '-' <V>
+        <V> ::= _ variavel
+        <V> ::= _ <valor_constante>
+        <valor_constante> ::= _ creal
+        <valor_constante> ::= _ cint
+        <valor_constante> ::= _ cstring
+        <FL> ::= _ '(' <L> ')'
+        <FL> ::= _ <R>
+        <R> ::= _ <E> <RD>
+
+        '-' s 28
+        '(' s 30
+        cint s 31
+        creal s 32
+        cstring s 33
+        variavel s 34
+        <E> g 35
+        <F> g 36
+        <FL> g 55
+        <R> g 40
+        <T> g 41
+        <V> g 43
+        <valor_constante> g 44
+
+
+State 30
+        <F> ::= '(' _ <E> ')'
+        <FL> ::= '(' _ <L> ')'
+        <E> ::= _ <E> '+' <T>
+        <E> ::= _ <E> '-' <T>
+        <E> ::= _ <T>
+        <T> ::= _ <T> '*' <F>
+        <T> ::= _ <T> '/' <F>
+        <T> ::= _ <T> '%' <F>
+        <T> ::= _ <F>
+        <F> ::= _ '(' <E> ')'
+        <F> ::= _ <V>
+        <F> ::= _ '-' <V>
+        <V> ::= _ variavel
+        <V> ::= _ <valor_constante>
+        <valor_constante> ::= _ creal
+        <valor_constante> ::= _ cint
+        <valor_constante> ::= _ cstring
+        <L> ::= _ <L> '||' <TL>
+        <L> ::= _ <TL>
+        <TL> ::= _ <TL> '&&' <FN>
+        <TL> ::= _ <FN>
+        <FN> ::= _ '!' <FL>
+        <FN> ::= _ <FL>
+        <FL> ::= _ '(' <L> ')'
+        <FL> ::= _ <R>
+        <R> ::= _ <E> <RD>
+
+        '-' s 28
+        '!' s 29
+        '(' s 30
+        cint s 31
+        creal s 32
+        cstring s 33
+        variavel s 34
+        <E> g 56
+        <F> g 36
+        <FL> g 37
+        <FN> g 38
+        <L> g 57
+        <R> g 40
+        <T> g 41
+        <TL> g 42
+        <V> g 43
+        <valor_constante> g 44
+
+
+State 31
+        <valor_constante> ::= cint _
+
+        '-' r 13
+        '!' r 13
+        '%' r 13
+        '&&' r 13
+        ')' r 13
+        '*' r 13
+        ',' r 13
+        '/' r 13
+        ';' r 13
+        '||' r 13
+        '+' r 13
+        '<' r 13
+        '=' r 13
+        '>' r 13
+
+
+State 32
+        <valor_constante> ::= creal _
+
+        '-' r 12
+        '!' r 12
+        '%' r 12
+        '&&' r 12
+        ')' r 12
+        '*' r 12
+        ',' r 12
+        '/' r 12
+        ';' r 12
+        '||' r 12
+        '+' r 12
+        '<' r 12
+        '=' r 12
+        '>' r 12
+
+
+State 33
+        <valor_constante> ::= cstring _
+
+        '-' r 14
+        '!' r 14
+        '%' r 14
+        '&&' r 14
+        ')' r 14
+        '*' r 14
+        ',' r 14
+        '/' r 14
+        ';' r 14
+        '||' r 14
+        '+' r 14
+        '<' r 14
+        '=' r 14
+        '>' r 14
+
+
+State 34
+        <V> ::= variavel _
+
+        '-' r 10
+        '!' r 10
+        '%' r 10
+        '&&' r 10
+        ')' r 10
+        '*' r 10
+        ',' r 10
+        '/' r 10
+        ';' r 10
+        '||' r 10
+        '+' r 10
+        '<' r 10
+        '=' r 10
+        '>' r 10
+
+
+State 35
+        <E> ::= <E> _ '+' <T>
+        <E> ::= <E> _ '-' <T>
+        <R> ::= <E> _ <RD>
+        <RD> ::= _ '<' <E>
+        <RD> ::= _ '<' '=' <E>
+        <RD> ::= _ '=' '=' <E>
+        <RD> ::= _ '!' '=' <E>
+        <RD> ::= _ '>' '=' <E>
+        <RD> ::= _ '>' <E>
+
+        '-' s 58
+        '!' s 59
+        '+' s 60
+        '<' s 61
+        '=' s 62
+        '>' s 63
+        <RD> g 64
+
+
+State 36
+        <T> ::= <F> _
+
+        '-' r 6
+        '!' r 6
+        '%' r 6
+        '&&' r 6
+        ')' r 6
+        '*' r 6
+        ',' r 6
+        '/' r 6
+        ';' r 6
+        '||' r 6
+        '+' r 6
+        '<' r 6
+        '=' r 6
+        '>' r 6
+
+
+State 37
+        <FN> ::= <FL> _
+
+        '&&' r 28
+        ')' r 28
+        '||' r 28
+
+
+State 38
+        <TL> ::= <FN> _
+
+        '&&' r 26
+        ')' r 26
+        '||' r 26
+
+
+State 39
+        <se> ::= if '(' <L> _ ')'
+        <L> ::= <L> _ '||' <TL>
+
+        ')' s 65
+        '||' s 66
+
+
+State 40
+        <FL> ::= <R> _
+
+        '&&' r 30
+        ')' r 30
+        '||' r 30
+
+
+State 41
+        <E> ::= <T> _
+        <T> ::= <T> _ '*' <F>
+        <T> ::= <T> _ '/' <F>
+        <T> ::= <T> _ '%' <F>
+
+        '%' s 67
+        '*' s 68
+        '/' s 69
+        '-' r 2
+        '!' r 2
+        '&&' r 2
+        ')' r 2
+        ',' r 2
+        ';' r 2
+        '||' r 2
+        '+' r 2
+        '<' r 2
+        '=' r 2
+        '>' r 2
+
+
+State 42
+        <L> ::= <TL> _
+        <TL> ::= <TL> _ '&&' <FN>
+
+        '&&' s 70
+        ')' r 24
+        '||' r 24
+
+
+State 43
+        <F> ::= <V> _
+
+        '-' r 8
+        '!' r 8
+        '%' r 8
+        '&&' r 8
+        ')' r 8
+        '*' r 8
+        ',' r 8
+        '/' r 8
+        ';' r 8
+        '||' r 8
+        '+' r 8
+        '<' r 8
+        '=' r 8
+        '>' r 8
+
+
+State 44
+        <V> ::= <valor_constante> _
+
+        '-' r 11
+        '!' r 11
+        '%' r 11
+        '&&' r 11
+        ')' r 11
+        '*' r 11
+        ',' r 11
+        '/' r 11
+        ';' r 11
+        '||' r 11
+        '+' r 11
+        '<' r 11
+        '=' r 11
+        '>' r 11
+
+
+State 45
+        <dec> ::= int <vardec> ';' _
+
+        '$' r 20
+        '}' r 20
+        char r 20
+        double r 20
+        if r 20
+        int r 20
+        variavel r 20
+        while r 20
+
+
+State 46
+        <F> ::= '(' _ <E> ')'
+        <E> ::= _ <E> '+' <T>
+        <E> ::= _ <E> '-' <T>
+        <E> ::= _ <T>
+        <T> ::= _ <T> '*' <F>
+        <T> ::= _ <T> '/' <F>
+        <T> ::= _ <T> '%' <F>
+        <T> ::= _ <F>
+        <F> ::= _ '(' <E> ')'
+        <F> ::= _ <V>
+        <F> ::= _ '-' <V>
+        <V> ::= _ variavel
+        <V> ::= _ <valor_constante>
+        <valor_constante> ::= _ creal
+        <valor_constante> ::= _ cint
+        <valor_constante> ::= _ cstring
+
+        '-' s 28
+        '(' s 46
+        cint s 31
+        creal s 32
+        cstring s 33
+        variavel s 34
+        <E> g 71
+        <F> g 36
+        <T> g 41
+        <V> g 43
+        <valor_constante> g 44
+
+
+State 47
+        <atr> ::= '=' <E> _
+        <E> ::= <E> _ '+' <T>
+        <E> ::= <E> _ '-' <T>
+
+        '-' s 58
+        '+' s 60
+        ',' r 15
+        ';' r 15
+
+
+State 48
+        <S> ::= variavel <atr> ';' _ <S>
+        <dec> ::= _ int <vardec> ';'
+        <dec> ::= _ double <vardec> ';'
+        <dec> ::= _ char <vardec> ';'
+        <enq> ::= _ while '(' <L> ')'
+        <S> ::= _ <dec> <S>
+        <S> ::= _ <se> '{' <S> '}' <D>
+        <S> ::= _ <enq> '{' <S> '}' <S>
+        <S> ::= _ variavel <atr> ';' <S>
+        <S> ::= _
+        <se> ::= _ if '(' <L> ')'
+
+        char s 1
+        double s 2
+        if s 3
+        int s 4
+        variavel s 5
+        while s 6
+        <dec> g 7
+        <enq> g 8
+        <S> g 72
+        <se> g 11
+        '$' r 46
+        '}' r 46
+
+
+State 49
+        <enq> ::= while '(' <L> _ ')'
+        <L> ::= <L> _ '||' <TL>
+
+        ')' s 73
+        '||' s 66
+
+
+State 50
+        <S> ::= <enq> '{' <S> _ '}' <S>
+
+        '}' s 74
+
+
+State 51
+        <S> ::= <se> '{' <S> _ '}' <D>
+
+        '}' s 75
+
+
+State 52
+        <vardec> ::= variavel ',' <vardec> _
+
+        ';' r 17
+
+
+State 53
+        <vardec> ::= variavel <atr> ',' _ <vardec>
+        <vardec> ::= _ variavel <atr> ',' <vardec>
+        <vardec> ::= _ variavel ',' <vardec>
+        <vardec> ::= _ variavel
+        <vardec> ::= _ variavel <atr>
+
+        variavel s 12
+        <vardec> g 76
+
+
+State 54
+        <F> ::= '-' <V> _
+
+        '-' r 9
+        '!' r 9
+        '%' r 9
+        '&&' r 9
+        ')' r 9
+        '*' r 9
+        ',' r 9
+        '/' r 9
+        ';' r 9
+        '||' r 9
+        '+' r 9
+        '<' r 9
+        '=' r 9
+        '>' r 9
+
+
+State 55
+        <FN> ::= '!' <FL> _
+
+        '&&' r 27
+        ')' r 27
+        '||' r 27
+
+
+State 56
+        <F> ::= '(' <E> _ ')'
+        <E> ::= <E> _ '+' <T>
+        <E> ::= <E> _ '-' <T>
+        <R> ::= <E> _ <RD>
+        <RD> ::= _ '<' <E>
+        <RD> ::= _ '<' '=' <E>
+        <RD> ::= _ '=' '=' <E>
+        <RD> ::= _ '!' '=' <E>
+        <RD> ::= _ '>' '=' <E>
+        <RD> ::= _ '>' <E>
+
+        '-' s 58
+        '!' s 59
+        ')' s 77
+        '+' s 60
+        '<' s 61
+        '=' s 62
+        '>' s 63
+        <RD> g 64
+
+
+State 57
+        <FL> ::= '(' <L> _ ')'
+        <L> ::= <L> _ '||' <TL>
+
+        ')' s 78
+        '||' s 66
+
+
+State 58
+        <E> ::= <E> '-' _ <T>
+        <T> ::= _ <T> '*' <F>
+        <T> ::= _ <T> '/' <F>
+        <T> ::= _ <T> '%' <F>
+        <T> ::= _ <F>
+        <F> ::= _ '(' <E> ')'
+        <F> ::= _ <V>
+        <F> ::= _ '-' <V>
+        <V> ::= _ variavel
+        <V> ::= _ <valor_constante>
+        <valor_constante> ::= _ creal
+        <valor_constante> ::= _ cint
+        <valor_constante> ::= _ cstring
+
+        '-' s 28
+        '(' s 46
+        cint s 31
+        creal s 32
+        cstring s 33
+        variavel s 34
+        <F> g 36
+        <T> g 79
+        <V> g 43
+        <valor_constante> g 44
+
+
+State 59
+        <RD> ::= '!' _ '=' <E>
+
+        '=' s 80
+
+
+State 60
+        <E> ::= <E> '+' _ <T>
+        <T> ::= _ <T> '*' <F>
+        <T> ::= _ <T> '/' <F>
+        <T> ::= _ <T> '%' <F>
+        <T> ::= _ <F>
+        <F> ::= _ '(' <E> ')'
+        <F> ::= _ <V>
+        <F> ::= _ '-' <V>
+        <V> ::= _ variavel
+        <V> ::= _ <valor_constante>
+        <valor_constante> ::= _ creal
+        <valor_constante> ::= _ cint
+        <valor_constante> ::= _ cstring
+
+        '-' s 28
+        '(' s 46
+        cint s 31
+        creal s 32
+        cstring s 33
+        variavel s 34
+        <F> g 36
+        <T> g 81
+        <V> g 43
+        <valor_constante> g 44
+
+
+State 61
+        <RD> ::= '<' _ <E>
+        <RD> ::= '<' _ '=' <E>
+        <E> ::= _ <E> '+' <T>
+        <E> ::= _ <E> '-' <T>
+        <E> ::= _ <T>
+        <T> ::= _ <T> '*' <F>
+        <T> ::= _ <T> '/' <F>
+        <T> ::= _ <T> '%' <F>
+        <T> ::= _ <F>
+        <F> ::= _ '(' <E> ')'
+        <F> ::= _ <V>
+        <F> ::= _ '-' <V>
+        <V> ::= _ variavel
+        <V> ::= _ <valor_constante>
+        <valor_constante> ::= _ creal
+        <valor_constante> ::= _ cint
+        <valor_constante> ::= _ cstring
+
+        '-' s 28
+        '(' s 46
+        '=' s 82
+        cint s 31
+        creal s 32
+        cstring s 33
+        variavel s 34
+        <E> g 83
+        <F> g 36
+        <T> g 41
+        <V> g 43
+        <valor_constante> g 44
+
+
+State 62
+        <RD> ::= '=' _ '=' <E>
+
+        '=' s 84
+
+
+State 63
+        <RD> ::= '>' _ '=' <E>
+        <RD> ::= '>' _ <E>
+        <E> ::= _ <E> '+' <T>
+        <E> ::= _ <E> '-' <T>
+        <E> ::= _ <T>
+        <T> ::= _ <T> '*' <F>
+        <T> ::= _ <T> '/' <F>
+        <T> ::= _ <T> '%' <F>
+        <T> ::= _ <F>
+        <F> ::= _ '(' <E> ')'
+        <F> ::= _ <V>
+        <F> ::= _ '-' <V>
+        <V> ::= _ variavel
+        <V> ::= _ <valor_constante>
+        <valor_constante> ::= _ creal
+        <valor_constante> ::= _ cint
+        <valor_constante> ::= _ cstring
+
+        '-' s 28
+        '(' s 46
+        '=' s 85
+        cint s 31
+        creal s 32
+        cstring s 33
+        variavel s 34
+        <E> g 86
+        <F> g 36
+        <T> g 41
+        <V> g 43
+        <valor_constante> g 44
+
+
+State 64
+        <R> ::= <E> <RD> _
+
+        '&&' r 31
+        ')' r 31
+        '||' r 31
+
+
+State 65
+        <se> ::= if '(' <L> ')' _
+
+        '{' r 48
+
+
+State 66
+        <L> ::= <L> '||' _ <TL>
+        <E> ::= _ <E> '+' <T>
+        <E> ::= _ <E> '-' <T>
+        <E> ::= _ <T>
+        <T> ::= _ <T> '*' <F>
+        <T> ::= _ <T> '/' <F>
+        <T> ::= _ <T> '%' <F>
+        <T> ::= _ <F>
+        <F> ::= _ '(' <E> ')'
+        <F> ::= _ <V>
+        <F> ::= _ '-' <V>
+        <V> ::= _ variavel
+        <V> ::= _ <valor_constante>
+        <valor_constante> ::= _ creal
+        <valor_constante> ::= _ cint
+        <valor_constante> ::= _ cstring
+        <TL> ::= _ <TL> '&&' <FN>
+        <TL> ::= _ <FN>
+        <FN> ::= _ '!' <FL>
+        <FN> ::= _ <FL>
+        <FL> ::= _ '(' <L> ')'
+        <FL> ::= _ <R>
+        <R> ::= _ <E> <RD>
+
+        '-' s 28
+        '!' s 29
+        '(' s 30
+        cint s 31
+        creal s 32
+        cstring s 33
+        variavel s 34
+        <E> g 35
+        <F> g 36
+        <FL> g 37
+        <FN> g 38
+        <R> g 40
+        <T> g 41
+        <TL> g 87
+        <V> g 43
+        <valor_constante> g 44
+
+
+State 67
+        <T> ::= <T> '%' _ <F>
+        <F> ::= _ '(' <E> ')'
+        <F> ::= _ <V>
+        <F> ::= _ '-' <V>
+        <V> ::= _ variavel
+        <V> ::= _ <valor_constante>
+        <valor_constante> ::= _ creal
+        <valor_constante> ::= _ cint
+        <valor_constante> ::= _ cstring
+
+        '-' s 28
+        '(' s 46
+        cint s 31
+        creal s 32
+        cstring s 33
+        variavel s 34
+        <F> g 88
+        <V> g 43
+        <valor_constante> g 44
+
+
+State 68
+        <T> ::= <T> '*' _ <F>
+        <F> ::= _ '(' <E> ')'
+        <F> ::= _ <V>
+        <F> ::= _ '-' <V>
+        <V> ::= _ variavel
+        <V> ::= _ <valor_constante>
+        <valor_constante> ::= _ creal
+        <valor_constante> ::= _ cint
+        <valor_constante> ::= _ cstring
+
+        '-' s 28
+        '(' s 46
+        cint s 31
+        creal s 32
+        cstring s 33
+        variavel s 34
+        <F> g 89
+        <V> g 43
+        <valor_constante> g 44
+
+
+State 69
+        <T> ::= <T> '/' _ <F>
+        <F> ::= _ '(' <E> ')'
+        <F> ::= _ <V>
+        <F> ::= _ '-' <V>
+        <V> ::= _ variavel
+        <V> ::= _ <valor_constante>
+        <valor_constante> ::= _ creal
+        <valor_constante> ::= _ cint
+        <valor_constante> ::= _ cstring
+
+        '-' s 28
+        '(' s 46
+        cint s 31
+        creal s 32
+        cstring s 33
+        variavel s 34
+        <F> g 90
+        <V> g 43
+        <valor_constante> g 44
+
+
+State 70
+        <TL> ::= <TL> '&&' _ <FN>
+        <E> ::= _ <E> '+' <T>
+        <E> ::= _ <E> '-' <T>
+        <E> ::= _ <T>
+        <T> ::= _ <T> '*' <F>
+        <T> ::= _ <T> '/' <F>
+        <T> ::= _ <T> '%' <F>
+        <T> ::= _ <F>
+        <F> ::= _ '(' <E> ')'
+        <F> ::= _ <V>
+        <F> ::= _ '-' <V>
+        <V> ::= _ variavel
+        <V> ::= _ <valor_constante>
+        <valor_constante> ::= _ creal
+        <valor_constante> ::= _ cint
+        <valor_constante> ::= _ cstring
+        <FN> ::= _ '!' <FL>
+        <FN> ::= _ <FL>
+        <FL> ::= _ '(' <L> ')'
+        <FL> ::= _ <R>
+        <R> ::= _ <E> <RD>
+
+        '-' s 28
+        '!' s 29
+        '(' s 30
+        cint s 31
+        creal s 32
+        cstring s 33
+        variavel s 34
+        <E> g 35
+        <F> g 36
+        <FL> g 37
+        <FN> g 91
+        <R> g 40
+        <T> g 41
+        <V> g 43
+        <valor_constante> g 44
+
+
+State 71
+        <F> ::= '(' <E> _ ')'
+        <E> ::= <E> _ '+' <T>
+        <E> ::= <E> _ '-' <T>
+
+        '-' s 58
+        ')' s 77
+        '+' s 60
+
+
+State 72
+        <S> ::= variavel <atr> ';' <S> _
+
+        '$' r 45
+        '}' r 45
+
+
+State 73
+        <enq> ::= while '(' <L> ')' _
+
+        '{' r 41
+
+
+State 74
+        <S> ::= <enq> '{' <S> '}' _ <S>
+        <dec> ::= _ int <vardec> ';'
+        <dec> ::= _ double <vardec> ';'
+        <dec> ::= _ char <vardec> ';'
+        <enq> ::= _ while '(' <L> ')'
+        <S> ::= _ <dec> <S>
+        <S> ::= _ <se> '{' <S> '}' <D>
+        <S> ::= _ <enq> '{' <S> '}' <S>
+        <S> ::= _ variavel <atr> ';' <S>
+        <S> ::= _
+        <se> ::= _ if '(' <L> ')'
+
+        char s 1
+        double s 2
+        if s 3
+        int s 4
+        variavel s 5
+        while s 6
+        <dec> g 7
+        <enq> g 8
+        <S> g 92
+        <se> g 11
+        '$' r 46
+        '}' r 46
+
+
+State 75
+        <S> ::= <se> '{' <S> '}' _ <D>
+        <dec> ::= _ int <vardec> ';'
+        <dec> ::= _ double <vardec> ';'
+        <dec> ::= _ char <vardec> ';'
+        <D> ::= _ else '{' <S> '}' <S>
+        <D> ::= _ elseif '(' <L> ')' '{' <S> '}' <D>
+        <D> ::= _ <S>
+        <enq> ::= _ while '(' <L> ')'
+        <S> ::= _ <dec> <S>
+        <S> ::= _ <se> '{' <S> '}' <D>
+        <S> ::= _ <enq> '{' <S> '}' <S>
+        <S> ::= _ variavel <atr> ';' <S>
+        <S> ::= _
+        <se> ::= _ if '(' <L> ')'
+
+        char s 1
+        double s 2
+        else s 93
+        elseif s 94
+        if s 3
+        int s 4
+        variavel s 5
+        while s 6
+        <D> g 95
+        <dec> g 7
+        <enq> g 8
+        <S> g 96
+        <se> g 11
+        '$' r 46
+        '}' r 46
+
+
+State 76
+        <vardec> ::= variavel <atr> ',' <vardec> _
+
+        ';' r 16
+
+
+State 77
+        <F> ::= '(' <E> ')' _
+
+        '-' r 7
+        '!' r 7
+        '%' r 7
+        '&&' r 7
+        ')' r 7
+        '*' r 7
+        ',' r 7
+        '/' r 7
+        ';' r 7
+        '||' r 7
+        '+' r 7
+        '<' r 7
+        '=' r 7
+        '>' r 7
+
+
+State 78
+        <FL> ::= '(' <L> ')' _
+
+        '&&' r 29
+        ')' r 29
+        '||' r 29
+
+
+State 79
+        <E> ::= <E> '-' <T> _
+        <T> ::= <T> _ '*' <F>
+        <T> ::= <T> _ '/' <F>
+        <T> ::= <T> _ '%' <F>
+
+        '%' s 67
+        '*' s 68
+        '/' s 69
+        '-' r 1
+        '!' r 1
+        '&&' r 1
+        ')' r 1
+        ',' r 1
+        ';' r 1
+        '||' r 1
+        '+' r 1
+        '<' r 1
+        '=' r 1
+        '>' r 1
+
+
+State 80
+        <RD> ::= '!' '=' _ <E>
+        <E> ::= _ <E> '+' <T>
+        <E> ::= _ <E> '-' <T>
+        <E> ::= _ <T>
+        <T> ::= _ <T> '*' <F>
+        <T> ::= _ <T> '/' <F>
+        <T> ::= _ <T> '%' <F>
+        <T> ::= _ <F>
+        <F> ::= _ '(' <E> ')'
+        <F> ::= _ <V>
+        <F> ::= _ '-' <V>
+        <V> ::= _ variavel
+        <V> ::= _ <valor_constante>
+        <valor_constante> ::= _ creal
+        <valor_constante> ::= _ cint
+        <valor_constante> ::= _ cstring
+
+        '-' s 28
+        '(' s 46
+        cint s 31
+        creal s 32
+        cstring s 33
+        variavel s 34
+        <E> g 97
+        <F> g 36
+        <T> g 41
+        <V> g 43
+        <valor_constante> g 44
+
+
+State 81
+        <E> ::= <E> '+' <T> _
+        <T> ::= <T> _ '*' <F>
+        <T> ::= <T> _ '/' <F>
+        <T> ::= <T> _ '%' <F>
+
+        '%' s 67
+        '*' s 68
+        '/' s 69
+        '-' r 0
+        '!' r 0
+        '&&' r 0
+        ')' r 0
+        ',' r 0
+        ';' r 0
+        '||' r 0
+        '+' r 0
+        '<' r 0
+        '=' r 0
+        '>' r 0
+
+
+State 82
+        <RD> ::= '<' '=' _ <E>
+        <E> ::= _ <E> '+' <T>
+        <E> ::= _ <E> '-' <T>
+        <E> ::= _ <T>
+        <T> ::= _ <T> '*' <F>
+        <T> ::= _ <T> '/' <F>
+        <T> ::= _ <T> '%' <F>
+        <T> ::= _ <F>
+        <F> ::= _ '(' <E> ')'
+        <F> ::= _ <V>
+        <F> ::= _ '-' <V>
+        <V> ::= _ variavel
+        <V> ::= _ <valor_constante>
+        <valor_constante> ::= _ creal
+        <valor_constante> ::= _ cint
+        <valor_constante> ::= _ cstring
+
+        '-' s 28
+        '(' s 46
+        cint s 31
+        creal s 32
+        cstring s 33
+        variavel s 34
+        <E> g 98
+        <F> g 36
+        <T> g 41
+        <V> g 43
+        <valor_constante> g 44
+
+
+State 83
+        <RD> ::= '<' <E> _
+        <E> ::= <E> _ '+' <T>
+        <E> ::= <E> _ '-' <T>
+
+        '-' s 58
+        '+' s 60
+        '&&' r 32
+        ')' r 32
+        '||' r 32
+
+
+State 84
+        <RD> ::= '=' '=' _ <E>
+        <E> ::= _ <E> '+' <T>
+        <E> ::= _ <E> '-' <T>
+        <E> ::= _ <T>
+        <T> ::= _ <T> '*' <F>
+        <T> ::= _ <T> '/' <F>
+        <T> ::= _ <T> '%' <F>
+        <T> ::= _ <F>
+        <F> ::= _ '(' <E> ')'
+        <F> ::= _ <V>
+        <F> ::= _ '-' <V>
+        <V> ::= _ variavel
+        <V> ::= _ <valor_constante>
+        <valor_constante> ::= _ creal
+        <valor_constante> ::= _ cint
+        <valor_constante> ::= _ cstring
+
+        '-' s 28
+        '(' s 46
+        cint s 31
+        creal s 32
+        cstring s 33
+        variavel s 34
+        <E> g 99
+        <F> g 36
+        <T> g 41
+        <V> g 43
+        <valor_constante> g 44
+
+
+State 85
+        <RD> ::= '>' '=' _ <E>
+        <E> ::= _ <E> '+' <T>
+        <E> ::= _ <E> '-' <T>
+        <E> ::= _ <T>
+        <T> ::= _ <T> '*' <F>
+        <T> ::= _ <T> '/' <F>
+        <T> ::= _ <T> '%' <F>
+        <T> ::= _ <F>
+        <F> ::= _ '(' <E> ')'
+        <F> ::= _ <V>
+        <F> ::= _ '-' <V>
+        <V> ::= _ variavel
+        <V> ::= _ <valor_constante>
+        <valor_constante> ::= _ creal
+        <valor_constante> ::= _ cint
+        <valor_constante> ::= _ cstring
+
+        '-' s 28
+        '(' s 46
+        cint s 31
+        creal s 32
+        cstring s 33
+        variavel s 34
+        <E> g 100
+        <F> g 36
+        <T> g 41
+        <V> g 43
+        <valor_constante> g 44
+
+
+State 86
+        <RD> ::= '>' <E> _
+        <E> ::= <E> _ '+' <T>
+        <E> ::= <E> _ '-' <T>
+
+        '-' s 58
+        '+' s 60
+        '&&' r 37
+        ')' r 37
+        '||' r 37
+
+
+State 87
+        <L> ::= <L> '||' <TL> _
+        <TL> ::= <TL> _ '&&' <FN>
+
+        '&&' s 70
+        ')' r 23
+        '||' r 23
+
+
+State 88
+        <T> ::= <T> '%' <F> _
+
+        '-' r 5
+        '!' r 5
+        '%' r 5
+        '&&' r 5
+        ')' r 5
+        '*' r 5
+        ',' r 5
+        '/' r 5
+        ';' r 5
+        '||' r 5
+        '+' r 5
+        '<' r 5
+        '=' r 5
+        '>' r 5
+
+
+State 89
+        <T> ::= <T> '*' <F> _
+
+        '-' r 3
+        '!' r 3
+        '%' r 3
+        '&&' r 3
+        ')' r 3
+        '*' r 3
+        ',' r 3
+        '/' r 3
+        ';' r 3
+        '||' r 3
+        '+' r 3
+        '<' r 3
+        '=' r 3
+        '>' r 3
+
+
+State 90
+        <T> ::= <T> '/' <F> _
+
+        '-' r 4
+        '!' r 4
+        '%' r 4
+        '&&' r 4
+        ')' r 4
+        '*' r 4
+        ',' r 4
+        '/' r 4
+        ';' r 4
+        '||' r 4
+        '+' r 4
+        '<' r 4
+        '=' r 4
+        '>' r 4
+
+
+State 91
+        <TL> ::= <TL> '&&' <FN> _
+
+        '&&' r 25
+        ')' r 25
+        '||' r 25
+
+
+State 92
+        <S> ::= <enq> '{' <S> '}' <S> _
+
+        '$' r 44
+        '}' r 44
+
+
+State 93
+        <D> ::= else _ '{' <S> '}' <S>
+
+        '{' s 101
+
+
+State 94
+        <D> ::= elseif _ '(' <L> ')' '{' <S> '}' <D>
+
+        '(' s 102
+
+
+State 95
+        <S> ::= <se> '{' <S> '}' <D> _
+
+        '$' r 43
+        '}' r 43
+
+
+State 96
+        <D> ::= <S> _
+
+        '$' r 40
+        '}' r 40
+
+
+State 97
+        <RD> ::= '!' '=' <E> _
+        <E> ::= <E> _ '+' <T>
+        <E> ::= <E> _ '-' <T>
+
+        '-' s 58
+        '+' s 60
+        '&&' r 35
+        ')' r 35
+        '||' r 35
+
+
+State 98
+        <RD> ::= '<' '=' <E> _
+        <E> ::= <E> _ '+' <T>
+        <E> ::= <E> _ '-' <T>
+
+        '-' s 58
+        '+' s 60
+        '&&' r 33
+        ')' r 33
+        '||' r 33
+
+
+State 99
+        <RD> ::= '=' '=' <E> _
+        <E> ::= <E> _ '+' <T>
+        <E> ::= <E> _ '-' <T>
+
+        '-' s 58
+        '+' s 60
+        '&&' r 34
+        ')' r 34
+        '||' r 34
+
+
+State 100
+        <RD> ::= '>' '=' <E> _
+        <E> ::= <E> _ '+' <T>
+        <E> ::= <E> _ '-' <T>
+
+        '-' s 58
+        '+' s 60
+        '&&' r 36
+        ')' r 36
+        '||' r 36
+
+
+State 101
+        <D> ::= else '{' _ <S> '}' <S>
+        <dec> ::= _ int <vardec> ';'
+        <dec> ::= _ double <vardec> ';'
+        <dec> ::= _ char <vardec> ';'
+        <enq> ::= _ while '(' <L> ')'
+        <S> ::= _ <dec> <S>
+        <S> ::= _ <se> '{' <S> '}' <D>
+        <S> ::= _ <enq> '{' <S> '}' <S>
+        <S> ::= _ variavel <atr> ';' <S>
+        <S> ::= _
+        <se> ::= _ if '(' <L> ')'
+
+        char s 1
+        double s 2
+        if s 3
+        int s 4
+        variavel s 5
+        while s 6
+        <dec> g 7
+        <enq> g 8
+        <S> g 103
+        <se> g 11
+        '}' r 46
+
+
+State 102
+        <D> ::= elseif '(' _ <L> ')' '{' <S> '}' <D>
+        <E> ::= _ <E> '+' <T>
+        <E> ::= _ <E> '-' <T>
+        <E> ::= _ <T>
+        <T> ::= _ <T> '*' <F>
+        <T> ::= _ <T> '/' <F>
+        <T> ::= _ <T> '%' <F>
+        <T> ::= _ <F>
+        <F> ::= _ '(' <E> ')'
+        <F> ::= _ <V>
+        <F> ::= _ '-' <V>
+        <V> ::= _ variavel
+        <V> ::= _ <valor_constante>
+        <valor_constante> ::= _ creal
+        <valor_constante> ::= _ cint
+        <valor_constante> ::= _ cstring
+        <L> ::= _ <L> '||' <TL>
+        <L> ::= _ <TL>
+        <TL> ::= _ <TL> '&&' <FN>
+        <TL> ::= _ <FN>
+        <FN> ::= _ '!' <FL>
+        <FN> ::= _ <FL>
+        <FL> ::= _ '(' <L> ')'
+        <FL> ::= _ <R>
+        <R> ::= _ <E> <RD>
+
+        '-' s 28
+        '!' s 29
+        '(' s 30
+        cint s 31
+        creal s 32
+        cstring s 33
+        variavel s 34
+        <E> g 35
+        <F> g 36
+        <FL> g 37
+        <FN> g 38
+        <L> g 104
+        <R> g 40
+        <T> g 41
+        <TL> g 42
+        <V> g 43
+        <valor_constante> g 44
+
+
+State 103
+        <D> ::= else '{' <S> _ '}' <S>
+
+        '}' s 105
+
+
+State 104
+        <D> ::= elseif '(' <L> _ ')' '{' <S> '}' <D>
+        <L> ::= <L> _ '||' <TL>
+
+        ')' s 106
+        '||' s 66
+
+
+State 105
+        <D> ::= else '{' <S> '}' _ <S>
+        <dec> ::= _ int <vardec> ';'
+        <dec> ::= _ double <vardec> ';'
+        <dec> ::= _ char <vardec> ';'
+        <enq> ::= _ while '(' <L> ')'
+        <S> ::= _ <dec> <S>
+        <S> ::= _ <se> '{' <S> '}' <D>
+        <S> ::= _ <enq> '{' <S> '}' <S>
+        <S> ::= _ variavel <atr> ';' <S>
+        <S> ::= _
+        <se> ::= _ if '(' <L> ')'
+
+        char s 1
+        double s 2
+        if s 3
+        int s 4
+        variavel s 5
+        while s 6
+        <dec> g 7
+        <enq> g 8
+        <S> g 107
+        <se> g 11
+        '$' r 46
+        '}' r 46
+
+
+State 106
+        <D> ::= elseif '(' <L> ')' _ '{' <S> '}' <D>
+
+        '{' s 108
+
+
+State 107
+        <D> ::= else '{' <S> '}' <S> _
+
+        '$' r 38
+        '}' r 38
+
+
+State 108
+        <D> ::= elseif '(' <L> ')' '{' _ <S> '}' <D>
+        <dec> ::= _ int <vardec> ';'
+        <dec> ::= _ double <vardec> ';'
+        <dec> ::= _ char <vardec> ';'
+        <enq> ::= _ while '(' <L> ')'
+        <S> ::= _ <dec> <S>
+        <S> ::= _ <se> '{' <S> '}' <D>
+        <S> ::= _ <enq> '{' <S> '}' <S>
+        <S> ::= _ variavel <atr> ';' <S>
+        <S> ::= _
+        <se> ::= _ if '(' <L> ')'
+
+        char s 1
+        double s 2
+        if s 3
+        int s 4
+        variavel s 5
+        while s 6
+        <dec> g 7
+        <enq> g 8
+        <S> g 109
+        <se> g 11
+        '}' r 46
+
+
+State 109
+        <D> ::= elseif '(' <L> ')' '{' <S> _ '}' <D>
+
+        '}' s 110
+
+
+State 110
+        <D> ::= elseif '(' <L> ')' '{' <S> '}' _ <D>
+        <dec> ::= _ int <vardec> ';'
+        <dec> ::= _ double <vardec> ';'
+        <dec> ::= _ char <vardec> ';'
+        <D> ::= _ else '{' <S> '}' <S>
+        <D> ::= _ elseif '(' <L> ')' '{' <S> '}' <D>
+        <D> ::= _ <S>
+        <enq> ::= _ while '(' <L> ')'
+        <S> ::= _ <dec> <S>
+        <S> ::= _ <se> '{' <S> '}' <D>
+        <S> ::= _ <enq> '{' <S> '}' <S>
+        <S> ::= _ variavel <atr> ';' <S>
+        <S> ::= _
+        <se> ::= _ if '(' <L> ')'
+
+        char s 1
+        double s 2
+        else s 93
+        elseif s 94
+        if s 3
+        int s 4
+        variavel s 5
+        while s 6
+        <D> g 111
+        <dec> g 7
+        <enq> g 8
+        <S> g 96
+        <se> g 11
+        '$' r 46
+        '}' r 46
+
+
+State 111
+        <D> ::= elseif '(' <L> ')' '{' <S> '}' <D> _
+
+        '$' r 39
+        '}' r 39
