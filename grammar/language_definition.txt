@@ -1,0 +1,30 @@
+variable types:
+    int,double,char
+
+arithmetic operators:
+    *,/,%,+,-
+
+relational operators:
+    <, <=, ==, >=, >, !=
+
+logical operators:
+    NOT,AND,OR
+
+All of the logical operations are evaluated with parentheses precedence.
+
+var declaration:
+    type nome;
+    type n1,n2;
+    type n1 = v1,n2 = v2;
+
+
+assignment:
+    n1 = exp;
+
+Loop: 
+    while(<condition>){
+    }
+
+IF: 
+    if(<condition>){
+    }

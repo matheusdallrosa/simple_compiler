@@ -1,0 +1,46 @@
+# = epsilon
+
+<S'> ::= <S>$
+
+/*general code*/
+<S> ::= <dec>;<S> | <se>{<S>}<D> | <enq>{<S>}<S> | <atr>;<S> | #
+
+/*new variables*/
+<dec> ::= int<vardec> | double<vardec> | char<vardec>
+<vardec> ::= <atr>,<vardec> | variavel,<vardec> | variavel | <atr>
+/*end new variables*/
+
+/*assignment*/
+<atr> ::= variavel = <E>
+/*end assignment*/
+
+/*if*/
+<se> ::= if(<L>)
+/*end if*/
+
+/*else else if*/
+<D> ::= else{<S>}<S>| elseif(<L>){<S>}<D>| <S>
+/*end else else if*/
+
+/*while*/
+<enq> ::= while(<L>)
+/*end while*/
+
+/arithmetic*/
+<E> ::= <E>+<T> | <E>-<T> | <T>
+<T> ::= <T>*<F> | <T>/<F> | <T>%<F> | <F>
+<F> ::= (<E>) | <V>
+<V> ::= variavel | <valor_constante>
+<valor_constante> ::= creal | cint | cstring
+/*end arithmetic*/
+
+/*relational*/
+<R> ::= <E> < <E> | <E> <= <E> | <E> == <E> | <E> != <E> | <E> >= <E> | <E> > <E>
+/*end relational*/
+
+/*logic operation*/
+<L> ::= <L>||<TL> | <TL>
+<TL> ::= <TL>&&<FN> | <FN>
+<FN> ::= !<FL> | <FL>
+<FL> ::= (<L>) | !<L> | <R>
+/*end logic operation*/
