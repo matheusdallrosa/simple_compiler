@@ -1,21 +1,24 @@
-# simple_compiler
+## Simple Compiler
 This is a simple compiler for a given simple language.
 
-Lexical:
+## Lexical:
 First use the determ.cpp to create a new deterministic automata, the input file for should be like this:
-number_of_separators
-separator_0
-separator_1
-   .
-   .
-   .
-separator_number_of_separators
-number_of_tokens
-number_of_lines_for_the_grammar_of_the_next_token
-label_of_the_token
-grammar_of_the_token
 
-Sample for the determ.cpp input on the lexical folder.
+number_of_separators
+
+separator_{0}, separator_{1}, ....... , separator_{number_of_separators}
+
+number_of_tokens
+
+number_of_lines_for_the_grammar_of_the_next_token
+
+label_of_the_token
+
+regular_grammar_of_the_token
+
+A regular grammar should follow the example on the file: lexical/determ_input_sample.txt
+
+## Sample for the determ.cpp input on the lexical folder.
 
 The determ.cpp will output a deterministic automata on a file named qwer.csv on the current dir.
 
