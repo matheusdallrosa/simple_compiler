@@ -6,7 +6,7 @@ First use the determ.cpp to create a new deterministic automata, the input file 
 
 number_of_separators
 
-separator_{0}, separator_{1}, ....... , separator_{number_of_separators}
+separator\_{0}, separator\_{1}, ......., separator_{number_of_separators}
 
 number_of_tokens
 
